@@ -7,8 +7,6 @@ export default function Home() {
       <Navbar />
       <Counter />
       <Navbar />
-      <Navbar />
-      <Navbar />
     </div>
   )
 }
