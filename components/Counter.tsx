@@ -1,20 +1,24 @@
 'use client'
-import { appSelector } from "@/store/slices/appSlice"
-import { useAppDispatch, RootState } from "@/store/store"
+import { counterSelector } from "@/store/slices/counterSlice"
 import { useSelector } from "react-redux"
-import { decrement, increment } from "@/store/slices/appSlice"
-
+import { decrement, increment , incrementByAmount ,incrementAsync} from "@/store/slices/counterSlice"
+import { useDispatch } from "react-redux"
 const Counter = () => {
-    const appReducer = useSelector(appSelector);
-    const dispatch = useAppDispatch();
+    const counterReducer = useSelector(counterSelector);
+    // const dispatch = useAppDispatch();
+    const dispatch = useDispatch();
 
     return (
         <div>
-            counter from Counter component : {appReducer.counter}            
+            counter from Counter component : {counterReducer.counter}            
             <div>
                 <button onClick={() => dispatch(decrement())}>Decrement</button>
                 ||
                 <button onClick={() => dispatch(increment())}>Increment</button>
+                ||
+                <button onClick={() => dispatch(incrementByAmount(10))}>Increment by 10</button>
+                ||
+                <button onClick={() => dispatch(incrementAsync(3))}>IncrementAsync by 3</button>  
             </div>
         </div>
     )
