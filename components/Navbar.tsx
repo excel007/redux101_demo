@@ -1,15 +1,15 @@
 'use client'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { counterSelector } from '@/store/slices/counterSlice'
+import { appSelector } from '@/store/slices/appSlice'
 type Props = {}
 
 export default function Navbar({ }: Props) {
-    const counterReducer = useSelector(counterSelector);
+    const appReducer = useSelector(appSelector);
     return (
         <div>counter from Navbar component :
             
-            {counterReducer.counter}
+            {appReducer.counter}
         </div>
     )
 }
